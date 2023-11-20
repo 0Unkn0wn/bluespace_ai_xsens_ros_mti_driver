@@ -29,7 +29,7 @@ You can find the full documentation in "<your MT SDK directory>/doc/xsensdevicea
 
 Note: Building of 'xspublic' from the ament workspace has been automated in the CMake script. To build it manually, run the following from the ROS2.0 workspace root:
 
-`pushd src/bluespace_ai_xsens_ros_mti_driver/lib/xspublic && make && popd`
+`pushd src/ros2_xsens_mti_driver/lib/xspublic && make && popd`
 
 Changes in this release compared to the Xsens ROS 1.0 driver open source:
 - Added ROS 2.0 support: The ROS 1.0 wrapper node was modified to work with ROS 2.0.
@@ -43,7 +43,7 @@ Changes in this release compared to the Xsens ROS 1.0 driver open source:
 
 - Launch the Xsens MTi driver from your ament workspace:
 
-`ros2 launch bluespace_ai_xsens_mti_driver xsens_mti_node.launch.py`
+`ros2 launch ros2_xsens_mti_driver xsens_mti_node.launch.py`
 
   After the device has been detected, you can communicate with it from another process / terminal window.
   For example:
@@ -67,7 +67,7 @@ Changes in this release compared to the Xsens ROS 1.0 driver open source:
   ```
 - There is also an example that shows a 3D visualization of the device (orientation data should be enabled in the device):
 
-`ros2 launch bluespace_ai_xsens_mti_driver display.launch.py`
+`ros2 launch ros2_xsens_mti_driver display.launch.py`
 
 To see all topics the driver exposes run the following command:
 
