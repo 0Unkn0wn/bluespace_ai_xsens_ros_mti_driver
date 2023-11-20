@@ -9,7 +9,7 @@ You can find the full documentation in "<your MT SDK directory>/doc/xsensdevicea
     - C++14
 
 ## Building:
-- Copy bluespace_ai_xsens_mti_driver folder into your ROS 2.0 workspace 'src' folder.
+- Copy ros2_xsens_mti_driver folder into your ROS 2.0 workspace 'src' folder.
 
 `mkdir -p ~/<name_of_workspace>/src`
 
