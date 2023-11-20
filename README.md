@@ -11,10 +11,12 @@ You can find the full documentation in "<your MT SDK directory>/doc/xsensdevicea
 ## Building:
 - Copy bluespace_ai_xsens_mti_driver folder into your ROS 2.0 workspace 'src' folder.
 `mkdir -p ~/<name_of_workspace>/src`
+
 `git clone https://github.com/0Unkn0wn/bluespace_ai_xsens_ros_mti_driver.git`
 
 - Build Xsens MTi driver package:
 `cd ..`
+
 `colcon build`
 
 - Source workspace:
