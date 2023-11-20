@@ -10,19 +10,25 @@ You can find the full documentation in "<your MT SDK directory>/doc/xsensdevicea
 
 ## Building:
 - Copy bluespace_ai_xsens_mti_driver folder into your ROS 2.0 workspace 'src' folder.
+
 `mkdir -p ~/<name_of_workspace>/src`
 
-`git clone https://github.com/0Unkn0wn/bluespace_ai_xsens_ros_mti_driver.git`
+`cd ~/<name_of_workspace>/src`
+
+`git clone https://github.com/0Unkn0wn/ros2_xsens_mti_driver.git`
 
 - Build Xsens MTi driver package:
+
 `cd ..`
 
 `colcon build`
 
 - Source workspace:
+
 `source install/setup.bash`
 
 Note: Building of 'xspublic' from the ament workspace has been automated in the CMake script. To build it manually, run the following from the ROS2.0 workspace root:
+
 `pushd src/bluespace_ai_xsens_ros_mti_driver/lib/xspublic && make && popd`
 
 Changes in this release compared to the Xsens ROS 1.0 driver open source:
@@ -36,10 +42,12 @@ Changes in this release compared to the Xsens ROS 1.0 driver open source:
 - Configure your MTi device to output desired data (e.g. for display example - orientation output)
 
 - Launch the Xsens MTi driver from your ament workspace:
+
 `ros2 launch bluespace_ai_xsens_mti_driver xsens_mti_node.launch.py`
 
   After the device has been detected, you can communicate with it from another process / terminal window.
   For example:
+  
   `ros2 topic echo /filter/quaternion`
   This will result in a continuous stream of data output:
   ```
@@ -58,9 +66,11 @@ Changes in this release compared to the Xsens ROS 1.0 driver open source:
   ---
   ```
 - There is also an example that shows a 3D visualization of the device (orientation data should be enabled in the device):
+
 `ros2 launch bluespace_ai_xsens_mti_driver display.launch.py`
 
 To see all topics the driver exposes run the following command:
+
 `ros2 topic list`
 
 ## Compatibility:
@@ -83,7 +93,7 @@ To see all topics the driver exposes run the following command:
         instead of 
         10 ms, 10 ms, 10 ms, 10 ms, 10 ms, 10 ms, 10 ms, 10 ms, 10 ms, etc.
 
-        Work-around: for accurate and stable time stamp information, users can make use of the sensor reported time stamp (/imu/time_ref) instead.
+  Work-around: for accurate and stable time stamp information, users can make use of the sensor reported time stamp (/imu/time_ref) instead.
 
 ## Troubleshooting
 
@@ -93,6 +103,7 @@ To see all topics the driver exposes run the following command:
   If your kernel does not support the Board, you can add this manually
 
   `sudo /sbin/modprobe ftdi_sio`
+  
   `echo 2639 0300 | sudo tee /sys/bus/usb-serial/drivers/ftdi_sio/new_id`
 
 
@@ -102,13 +113,16 @@ To see all topics the driver exposes run the following command:
   access the device. You can test this with
 
   `ls -l /dev/ttyUSB0`
+  
   `crw-rw---- 1 root dialout 188, 0 May  6 16:21 /dev/ttyUSB0`
+  
   `groups`
+  
   `dialout audio video usb users plugdev`
 
-  If you aren't in the correct group, you can fix this in two ways.
+If you aren't in the correct group, you can fix this in two ways.
 
-  1. Add yourself to the correct group
+1. Add yourself to the correct group
 You can add yourself to it by using your distributions user management tool, or call: `sudo usermod -G dialout -a $USER`
 
 Be sure to replace dialout with the actual group name if it is different. After adding yourself to the group, either relogin to your user, or call:
